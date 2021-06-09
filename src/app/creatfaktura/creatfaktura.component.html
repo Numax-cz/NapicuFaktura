@@ -1,17 +1,12 @@
 <section id="CreatPole">
     <div class="Main">
-
         <div class="Title">
             Vytvoření nové faktury
         </div>
-
         <div class="PoleCt">
             <div class="grid">
                 <div class="GridItem">
                     <div class="UserInputs">
-
-
-
                         <div class="InputItem">
                             <span>Druh</span>
                             <select class="OptionInput" (change)="InputDPH($event)">
@@ -19,9 +14,6 @@
                                 <option value="false">Bez DPH</option>
                             </select>
                         </div>
-
-
-
                     </div>
                 </div>
                 <div class="GridItem">
@@ -143,7 +135,7 @@
                 Položky
             </div>
             <div class="AddItems">
-                <button>Přidat položku +</button>
+                <button (click)="AddItem()">Přidat položku +</button>
 
 
             </div>
@@ -167,28 +159,26 @@
 
                     <tr *ngFor="let i of Items">
                         <td class="InputItems-1 Input-Items">
-                            <input type="number" [value]="i.count" (input)="i.count = $any($event.target).value"
-                                (change)="ItemsPrice()">
+                            <input type="number" [value]="i.count" (change)="ItemsCount($event)">
                         </td>
                         <td class="InputItems-2 Input-Items">
-                            <select class="OptionInput">
+                            <select class="OptionInput" (change)="ItemsMj($event)">
                                 <option *ngFor="let option of OptionItems " [value]="option.value"> {{option.title}}
                                 </option>
                             </select>
                         </td>
                         <td class="InputItems-3 Input-Items">
-                            <input type="text" [value]="i.name" (input)="i.name = $any($event.target).value">
+                            <input type="text" [value]="i.name" (change)="ItemsName($event)">
                         </td>
                         <td *ngIf="DPH" class="InputItems-4 Input-Items">
-                            <select class="OptionInput" (input)="i.dph = $any($event.target).value" (change)="ItemsPrice()">
+                            <select class="OptionInput" (change)="ItemsDPH($event)">
                                 <option *ngFor="let option of OptionDPH" [value]="option.value"
                                     [selected]="i.dph === option.value"> {{option.title}}
                                 </option>
                             </select>
                         </td>
                         <td class="InputItems-5 Input-Items">
-                            <input type="number" [value]="i.price" (input)="i.price = $any($event.target).value"
-                                (change)="ItemsPrice()">
+                            <input type="number" [value]="i.price" (change)="ItemsPrice($event)">
                         </td>
                         <td class="InputItems-6 Input-Items">
                             <input type="text" disabled="disabled" [value]="i.priceall">

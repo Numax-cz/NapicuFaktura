@@ -6,6 +6,14 @@ interface Options {
   title: string
 }
 
+interface Items {
+  count: number,
+  unit: number,
+  name: string,
+  dph: number,
+  price: number,
+  priceall: number,
+}
 
 @Component({
   selector: 'app-creatfaktura',
@@ -21,19 +29,31 @@ export class CreatfakturaComponent implements OnInit {
   public DPHValue: number = 0;
   //idk
 
+  public readonly ItemsTemplate: Items = {
+    count: 0,
+    unit: 0, //idk
+    name: "",
+    dph: 0,
+    price: 0,
+    priceall: 0,
+  }
+
 
 
 
   constructor() { }
 
   ngOnInit(): void {
+    this.Items.push(this.ItemsTemplate);
   }
 
   public InputDPH(e: any): void {
     this.DPH = (e.target.value === "true") ? true : false;
   }
 
-
+  public AddItem(): void {
+    this.Items.push(this.ItemsTemplate);
+  }
 
 
 
@@ -43,7 +63,6 @@ export class CreatfakturaComponent implements OnInit {
     var num2: number = Math.round(num1 * dph + +price);
     return num2;
   }
-
 
 
 
@@ -71,6 +90,7 @@ export class CreatfakturaComponent implements OnInit {
       title: "21%"
     },
   ]
+
   public OptionItems: Options[] = [
     {
       value: 1,
@@ -98,27 +118,28 @@ export class CreatfakturaComponent implements OnInit {
     }
   ]
 
-
-  public Items = [
-    {
-      count: 0,
-      unit: 0, //idk
-      name: "",
-      dph: 0,
-      price: 0,
-      priceall: 0,
-    }
-
-  ]
+  public Items: Items[] = []
 
 
 
+  public ItemsCount(e: Event): void {
 
-  public ItemsPrice(): void {
-    this.Items.forEach(e => {
-      if (e.count !== 0 && e.price !== 0) {
-        e.priceall = e.count * (this.MathDPH(e.price, e.dph));
-      }
-    });
   }
+
+  public ItemsMj(e: Event): void {
+
+  }
+
+  public ItemsName(e: Event): void {
+
+  }
+  public ItemsDPH(e: Event): void {
+
+  }
+
+
+  public ItemsPrice(e: Event): void {
+
+  }
+
 }
