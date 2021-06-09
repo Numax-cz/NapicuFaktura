@@ -1,0 +1,100 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.Faktura-table {
+    padding: 25px 100px;
+}
+
+.Grid-Container {
+    font-size: 1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: auto auto;
+
+}
+
+.GridItem {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+
+    font-size: 30px;
+
+}
+
+.Title {
+    padding: 10px;
+    font-size: 2rem;
+}
+
+#TablesItems {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#TablesItems2 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Celkem {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+    font-size: 1.5rem;
+
+    padding: 70px 50px 0px;
+}
+
+.Celkem span {
+    margin-left: 280px;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+}
+
+#TablesItems td {
+    font-size: .8rem;
+    padding: 10px 20px;
+}
+
+#TablesItems2 td {
+    font-size: .8rem;
+    padding: 10px 60px;
+}
+
+.Border {
+    border: 1px solid rgba(0, 0, 0, 0.438);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.BorderRam {
+    border: 1px solid rgba(0, 0, 0, 0.438);
+
+}
+
+.Left {
+    text-align: left;
+}
+
+.Right {
+    text-align: right;
+}
+
+.TablesMain th {
+    padding: 20px;
+}
+
+.TablesMain2 th {
+    padding: 20px 60px;
+}
