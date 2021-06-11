@@ -21,6 +21,7 @@ interface Items {
   styleUrls: ['./creatfaktura.component.scss']
 })
 export class CreatfakturaComponent implements OnInit {
+
   public DPH: boolean = true;
 
   //idk
@@ -29,7 +30,7 @@ export class CreatfakturaComponent implements OnInit {
   public DPHValue: number = 0;
   //idk
 
-  public readonly ItemsTemplate: Items = {
+  public ItemsTemplate: Items = {
     count: 0,
     unit: 0, //idk
     name: "",
@@ -41,10 +42,11 @@ export class CreatfakturaComponent implements OnInit {
 
 
 
+
   constructor() { }
 
   ngOnInit(): void {
-    this.Items.push(this.ItemsTemplate);
+    //  this.Items.push(this.ItemsTemplate);
   }
 
   public InputDPH(e: any): void {
@@ -119,12 +121,30 @@ export class CreatfakturaComponent implements OnInit {
     }
   ]
 
-  public Items: Items[] = []
+  public Items: Items[] = [
+    {
+      count: 10,
+      unit: 0, //idk
+      name: "",
+      dph: 0,
+      price: 0,
+      priceall: 0,
+    },
+    {
+      count: 0,
+      unit: 0, //idk
+      name: "",
+      dph: 0,
+      price: 0,
+      priceall: 0,
+    }
+  ]
 
 
 
   public ItemsCount(e: any): void {
-    console.log(e);
+
+    
   }
 
   public ItemsMj(e: Event): void {
@@ -143,5 +163,8 @@ export class CreatfakturaComponent implements OnInit {
   public ItemsPrice(e: Event): void {
 
   }
+
+
+  
 
 }
