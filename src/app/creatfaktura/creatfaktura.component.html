@@ -157,28 +157,31 @@
                     </tr>
 
 
-                    <tr *ngFor="let i of Items; let b = index">
+                    <tr *ngFor="let i of Items">
                         <td class="InputItems-1 Input-Items">
-                            <input [(ngModel)]="i.count" type="number" [value]="i.count" (ngModelChange)="ItemsCount(i)" >
-                            </td>
+                            <input type="number" [(ngModel)]="i.count" (ngModelChange)="ItemsSetValues(i)">
+                        </td>
                         <td class="InputItems-2 Input-Items">
-                            <select class="OptionInput" (change)="ItemsMj($event)">
+                            <select class="OptionInput" [(ngModel)]="i.unit" (ngModelChange)="ItemsSetValues(i)">
                                 <option *ngFor="let option of OptionItems " [value]="option.value"> {{option.title}}
                                 </option>
                             </select>
                         </td>
                         <td class="InputItems-3 Input-Items">
-                            <input type="text" [value]="i.name" (change)="ItemsName($event)">
+                            <input type="text" [(ngModel)]="i.name" (ngModelChange)="ItemsSetValues(i)">
                         </td>
                         <td *ngIf="DPH" class="InputItems-4 Input-Items">
-                            <select class="OptionInput" (change)="ItemsDPH($event)">
+                            <select class="OptionInput" [(ngModel)]="i.dph" (ngModelChange)="ItemsSetValues(i)">
                                 <option *ngFor="let option of OptionDPH" [value]="option.value"
                                     [selected]="i.dph === option.value"> {{option.title}}
                                 </option>
                             </select>
                         </td>
+
+
+
                         <td class="InputItems-5 Input-Items">
-                            <input type="number" [value]="i.price" (change)="ItemsPrice($event)">
+                            <input type="number" [(ngModel)]="i.price" (ngModelChange)="ItemsSetValues(i)">
                         </td>
                         <td class="InputItems-6 Input-Items">
                             <input type="text" disabled="disabled" [value]="i.priceall">

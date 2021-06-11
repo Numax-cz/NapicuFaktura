@@ -14,6 +14,10 @@ interface Items {
   price: number,
   priceall: number,
 }
+interface Price {
+  WithoutDPH: number,
+  WithDPH: number
+}
 
 @Component({
   selector: 'app-creatfaktura',
@@ -124,7 +128,7 @@ export class CreatfakturaComponent implements OnInit {
   public Items: Items[] = [
     {
       count: 10,
-      unit: 0, //idk
+      unit: 1, //idk
       name: "",
       dph: 0,
       price: 0,
@@ -132,7 +136,7 @@ export class CreatfakturaComponent implements OnInit {
     },
     {
       count: 0,
-      unit: 0, //idk
+      unit: 1, //idk
       name: "",
       dph: 0,
       price: 0,
@@ -142,29 +146,35 @@ export class CreatfakturaComponent implements OnInit {
 
 
 
-  public ItemsCount(e: any): void {
-
-    
-  }
-
-  public ItemsMj(e: Event): void {
 
 
-  }
 
-  public ItemsName(e: Event): void {
+  public ItemsSetValues(e: Items): void {
+    let value = this.MathDPH(e.price, e.dph);
+    e.priceall = e.count * value;
 
-  }
 
-  public ItemsDPH(e: Event): void {
+
+    this.Price = this.ItemsGetAllPrice().WithoutDPH;
+    this.PriceDPH = this.ItemsGetAllPrice().WithDPH;
 
   }
 
-  public ItemsPrice(e: Event): void {
-
+  public ItemsGetAllPrice(): Price {
+    var WithoutDPH: number = 0;
+    var WithDPH: number = 0;
+    this.Items.forEach((e: Items) => {
+      WithDPH += e.priceall;
+      WithoutDPH += e.price;
+    });
+    return {
+      WithoutDPH: WithoutDPH,
+      WithDPH: WithDPH
+    };
   }
 
 
-  
+
+
 
 }
