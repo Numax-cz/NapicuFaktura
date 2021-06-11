@@ -145,7 +145,7 @@
             <div class="AddItem">
                 <table id="TablesItems">
 
-
+                  
                     <tr>
                         <th id="xd">Počet</th>
                         <th>M.J.</th>
@@ -157,7 +157,9 @@
                     </tr>
 
 
-                    <tr *ngFor="let i of Items">
+                    <tr *ngFor="let i of Items" id="MainItemsTable">
+
+
                         <td class="InputItems-1 Input-Items">
                             <input type="number" [(ngModel)]="i.count" (ngModelChange)="ItemsSetValues(i)">
                         </td>
@@ -189,11 +191,13 @@
                         <td>
                             <span>
                                 <i>
-                                    <img src="/assets/close.png" id="ButtonClose">
+                                    <img src="/assets/close.png" id="ButtonClose" (click)="DeleteItems(i)">
                                 </i>
                             </span>
                         </td>
+
                     </tr>
+
                 </table>
             </div>
         </div>
@@ -204,7 +208,6 @@
                     <tr class="BezDPH">
                         <td class="FinalListText">Celkem bez DPH</td>
                         <td class="CenaA">{{Price}} Kč</td>
-
                     </tr>
                     <tr class="SDPH">
                         <td class="FinalListText">Celkem s DPH</td>
@@ -215,6 +218,14 @@
 
             </div>
         </div>
+    </div>
+
+    <div class="Other">
+        <section class="Paper">
+            
+            <app-faktura  ></app-faktura>
+        </section>
+
     </div>
 
 

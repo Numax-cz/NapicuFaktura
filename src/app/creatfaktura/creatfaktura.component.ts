@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Faktura } from '../faktura/faktura.component';
 
 
 interface Options {
@@ -6,7 +7,7 @@ interface Options {
   title: string
 }
 
-interface Items {
+export interface Items {
   count: number,
   unit: number,
   name: string,
@@ -28,47 +29,47 @@ export class CreatfakturaComponent implements OnInit {
 
   public DPH: boolean = true;
 
-  //idk
   public Price: number = 0;
   public PriceDPH: number = 0;
-  public DPHValue: number = 0;
-  //idk
-
-  public ItemsTemplate: Items = {
-    count: 0,
-    unit: 0, //idk
-    name: "",
-    dph: 0,
-    price: 0,
-    priceall: 0,
-  }
-
 
 
 
 
   constructor() { }
 
-  ngOnInit(): void {
-    //  this.Items.push(this.ItemsTemplate);
-  }
+  ngOnInit(): void { }
 
   public InputDPH(e: any): void {
     this.DPH = (e.target.value === "true") ? true : false;
   }
 
   public AddItem(): void {
-    this.Items.push(this.ItemsTemplate);
-    console.log(this.Items);
+    this.Items.push({
+      count: 0,
+      unit: 1,
+      name: "",
+      dph: 0,
+      price: 0,
+      priceall: 0,
+    });
   }
 
 
+  public DeleteItems(e: Items): void {
 
+    this.Items = this.Items.filter(
+      item => item !== e
+    );
+  }
 
   public MathDPH(price: number, dph: number): number {
     var num1: number = price / 100;
-    var num2: number = Math.round(num1 * dph + +price);
-    return num2;
+    if (this.DPH) {
+      var num2: number = Math.round(num1 * dph + +price);
+      return num2;
+    } else {
+      return price;
+    }
   }
 
 
@@ -127,14 +128,6 @@ export class CreatfakturaComponent implements OnInit {
 
   public Items: Items[] = [
     {
-      count: 10,
-      unit: 1, //idk
-      name: "",
-      dph: 0,
-      price: 0,
-      priceall: 0,
-    },
-    {
       count: 0,
       unit: 1, //idk
       name: "",
@@ -152,12 +145,8 @@ export class CreatfakturaComponent implements OnInit {
   public ItemsSetValues(e: Items): void {
     let value = this.MathDPH(e.price, e.dph);
     e.priceall = e.count * value;
-
-
-
     this.Price = this.ItemsGetAllPrice().WithoutDPH;
     this.PriceDPH = this.ItemsGetAllPrice().WithDPH;
-
   }
 
   public ItemsGetAllPrice(): Price {
@@ -173,6 +162,13 @@ export class CreatfakturaComponent implements OnInit {
     };
   }
 
+  public LoadFaktura(): void {
+
+
+
+
+
+  }
 
 
 
