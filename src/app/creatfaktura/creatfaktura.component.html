@@ -157,9 +157,10 @@
                     </tr>
 
 
-                    <tr *ngFor="let i of Items">
+                    <tr *ngFor="let i of Items; let b = index">
                         <td class="InputItems-1 Input-Items">
-                            <input type="number" [value]="i.count" (change)="ItemsCount($event)">
+                            <input type="number" [value]="i.count" (change)="ItemsCount(i)"
+                                (input)="Items[b].count = $any($event.target).value ">
                         </td>
                         <td class="InputItems-2 Input-Items">
                             <select class="OptionInput" (change)="ItemsMj($event)">

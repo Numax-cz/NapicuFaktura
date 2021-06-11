@@ -53,6 +53,7 @@ export class CreatfakturaComponent implements OnInit {
 
   public AddItem(): void {
     this.Items.push(this.ItemsTemplate);
+    console.log(this.Items);
   }
 
 
@@ -122,21 +123,22 @@ export class CreatfakturaComponent implements OnInit {
 
 
 
-  public ItemsCount(e: Event): void {
-
+  public ItemsCount(e: any): void {
+    console.log(e);
   }
 
   public ItemsMj(e: Event): void {
+
 
   }
 
   public ItemsName(e: Event): void {
 
   }
+
   public ItemsDPH(e: Event): void {
 
   }
-
 
   public ItemsPrice(e: Event): void {
 
