@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 import { CreatfakturaComponent, Items } from '../creatfaktura/creatfaktura.component';
 
 export interface FakturaDates {
-  Exposure: HTMLDataElement,
-  Zd: HTMLDataElement,
-  Validity: HTMLDataElement
+  Exposure: string,
+  Zd: string,
+  Validity: string
 }
 
 export interface FakturaUsers {
-  Ico: number,
+  Ico: string,
   Name: string,
   Street: string,
   City: string,
@@ -21,9 +21,9 @@ export interface FakturaUsers {
 export interface Faktura {
   Type: string,
   Payment: string,
-  Dates: Array<FakturaDates>,
-  UserOd: Array<FakturaUsers>,
-  UserDo: Array<FakturaUsers>,
+  Dates: FakturaDates,
+  UserOd: FakturaUsers,
+  UserDo: FakturaUsers,
   Items: Items[]
 }
 
@@ -35,18 +35,21 @@ export interface Faktura {
 })
 export class FakturaComponent implements OnInit {
 
-  @Input() data: Array<Faktura> = [
-    {
+  // @Input() data: Faktura = {
+  //   Type: "S DPH",
+  //   Payment: "Hotově",
+  //   Dates: {
 
-    }
-  ];
+
+  //   }
+  // }
 
   constructor() {
 
   }
 
   ngOnInit(): void {
-    console.log(this.data);
+    // console.log(this.data);
 
   }
 

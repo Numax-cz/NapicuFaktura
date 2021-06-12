@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Faktura } from '../faktura/faktura.component';
+import { Faktura, FakturaDates, FakturaUsers } from '../faktura/faktura.component';
 
 
 interface Options {
@@ -27,6 +27,18 @@ interface Price {
 })
 export class CreatfakturaComponent implements OnInit {
 
+  public Items: Items[] = [
+    {
+      count: 0,
+      unit: 1, //idk
+      name: "",
+      dph: 0,
+      price: 0,
+      priceall: 0,
+    }
+  ]
+
+
   public DPH: boolean = true;
 
   public Price: number = 0;
@@ -35,9 +47,44 @@ export class CreatfakturaComponent implements OnInit {
 
 
 
+
+  public Faktura: Faktura = {
+    Type: "",
+    Payment: "",
+    Dates: {
+      Exposure: "0000-00-00",
+      Zd: "0000-00-00",
+      Validity: "0000-00-00"
+    },
+    UserOd: {
+      Ico: "",
+      Name: "",
+      Street: "",
+      City: "",
+      Psc: "",
+      Nation: ""
+    },
+    UserDo: {
+      Ico: "",
+      Name: "",
+      Street: "",
+      City: "",
+      Psc: "",
+      Nation: ""
+    },
+    Items: this.Items
+  }
+
+
+
+
+
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+
+  }
 
   public InputDPH(e: any): void {
     this.DPH = (e.target.value === "true") ? true : false;
@@ -126,16 +173,7 @@ export class CreatfakturaComponent implements OnInit {
     }
   ]
 
-  public Items: Items[] = [
-    {
-      count: 0,
-      unit: 1, //idk
-      name: "",
-      dph: 0,
-      price: 0,
-      priceall: 0,
-    }
-  ]
+
 
 
 
