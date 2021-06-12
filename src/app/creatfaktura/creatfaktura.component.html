@@ -9,46 +9,39 @@
                     <div class="UserInputs">
                         <div class="InputItem">
                             <span>Druh</span>
-                            <select class="OptionInput" (change)="InputDPH($event)">
-                                <option value="true">S DPH</option>
-                                <option value="false">Bez DPH</option>
+                            <select class="OptionInput" [(ngModel)]="Faktura.Type">
+                                <option *ngFor="let option of OptionDPHA" [value]="option.value">
+                                    {{option.title}}
+                                </option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="GridItem">
                     <div class="UserInputs">
-
                         <div class="InputItem">
                             <span>Datum vystavení</span>
                             <input type="date" id="Date1">
                         </div>
-
                         <div *ngIf="DPH" class="InputItem">
                             <span>Datum zd. plnění</span>
                             <input type="date" id="Date2">
                         </div>
-
                         <div class="InputItem">
                             <span>Splatnost</span>
                             <input type="date" id="Date3">
                         </div>
-
                         <div class="InputItem">
                             <span>Forma úhrady</span>
-                            <select class="OptionInput">
-                                <option value="true">Hotově</option>
-                                <option value="false">Kartou</option>
-                                <option value="false">Bankovní převod</option>
-                                <option value="false">PayPal</option>
+                            <select class="OptionInput" [(ngModel)]="Faktura.Payment">
+                                <option *ngFor="let option of OptionPay" [value]="option.value">
+                                    {{option.title}}
+                                </option>
                             </select>
                         </div>
-
                     </div>
                 </div>
-
             </div>
-
         </div>
 
 
@@ -145,7 +138,7 @@
             <div class="AddItem">
                 <table id="TablesItems">
 
-                  
+
                     <tr>
                         <th id="xd">Počet</th>
                         <th>M.J.</th>
@@ -165,7 +158,7 @@
                         </td>
                         <td class="InputItems-2 Input-Items">
                             <select class="OptionInput" [(ngModel)]="i.unit" (ngModelChange)="ItemsSetValues(i)">
-                                <option *ngFor="let option of OptionItems " [value]="option.value"> {{option.title}}
+                                <option *ngFor="let option of OptionItems" [value]="option.value"> {{option.title}}
                                 </option>
                             </select>
                         </td>
@@ -222,8 +215,8 @@
 
     <div class="Other">
         <section class="Paper">
-            
-            <app-faktura  ></app-faktura>
+
+            <app-faktura></app-faktura>
         </section>
 
     </div>

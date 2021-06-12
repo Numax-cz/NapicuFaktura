@@ -49,8 +49,8 @@ export class CreatfakturaComponent implements OnInit {
 
 
   public Faktura: Faktura = {
-    Type: "",
-    Payment: "",
+    Type: "1",
+    Payment: "1",
     Dates: {
       Exposure: "0000-00-00",
       Zd: "0000-00-00",
@@ -86,9 +86,7 @@ export class CreatfakturaComponent implements OnInit {
 
   }
 
-  public InputDPH(e: any): void {
-    this.DPH = (e.target.value === "true") ? true : false;
-  }
+ 
 
   public AddItem(): void {
     this.Items.push({
@@ -173,6 +171,35 @@ export class CreatfakturaComponent implements OnInit {
     }
   ]
 
+  public OptionPay: Options[] = [
+    {
+      value: 1,
+      title: "Hotově"
+    },
+    {
+      value: 2,
+      title: "Kartou"
+    },
+    {
+      value: 3,
+      title: "Bankovní převod"
+    },
+    {
+      value: 4,
+      title: "PayPal"
+    },
+  ]
+
+  public OptionDPHA: Options[] = [
+    {
+      value: 1,
+      title: "S DPH"
+    },
+    {
+      value: 1,
+      title: "Bez DPH"
+    }
+  ]
 
 
 
