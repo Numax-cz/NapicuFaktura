@@ -40,15 +40,14 @@ export class CreatfakturaComponent implements OnInit {
 
 
   public DPH: boolean = true;
-
   public Price: number = 0;
   public PriceDPH: number = 0;
 
 
 
 
-
   public Faktura: Faktura = {
+    Title: "NapicuFaktura",
     Type: "1",
     Payment: "1",
     Dates: {
@@ -58,6 +57,7 @@ export class CreatfakturaComponent implements OnInit {
     },
     UserOd: {
       Ico: "",
+      Dic: "",
       Name: "",
       Street: "",
       City: "",
@@ -66,6 +66,7 @@ export class CreatfakturaComponent implements OnInit {
     },
     UserDo: {
       Ico: "",
+      Dic: "",
       Name: "",
       Street: "",
       City: "",
@@ -86,7 +87,7 @@ export class CreatfakturaComponent implements OnInit {
 
   }
 
- 
+
 
   public AddItem(): void {
     this.Items.push({
@@ -210,6 +211,7 @@ export class CreatfakturaComponent implements OnInit {
   public ItemsSetValues(e: Items): void {
     let value = this.MathDPH(e.price, e.dph);
     e.priceall = e.count * value;
+
     this.Price = this.ItemsGetAllPrice().WithoutDPH;
     this.PriceDPH = this.ItemsGetAllPrice().WithDPH;
   }
@@ -219,7 +221,7 @@ export class CreatfakturaComponent implements OnInit {
     var WithDPH: number = 0;
     this.Items.forEach((e: Items) => {
       WithDPH += e.priceall;
-      WithoutDPH += e.price;
+      WithoutDPH += e.price * e.count;
     });
     return {
       WithoutDPH: WithoutDPH,
@@ -228,13 +230,9 @@ export class CreatfakturaComponent implements OnInit {
   }
 
   public LoadFaktura(): void {
-
-
-
-
+    console.log(this.Faktura);
 
   }
-
 
 
 

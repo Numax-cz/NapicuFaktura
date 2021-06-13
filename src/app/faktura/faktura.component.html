@@ -1,10 +1,10 @@
-<section id="Faktura">
+<section id="Faktura" *ngIf="data">
     <div class="Faktura-table">
         <div class="BorderRam">
             <div class="Top">
                 <div class="Title Border Right">
                     <div class="TitleID">
-                        NapicuFaktura
+                        {{data.Title}}
                     </div>
                 </div>
             </div>
@@ -15,23 +15,20 @@
                             Dodavatel
                         </div>
                         <div class="Grid-Container">
-                            <div class="Spolecnost">
-                                Napicu s.r.o
-                            </div>
                             <div class="Adresa">
-                                Picinská 3
-                            </div>
-                            <div class="Adresa2">
-                                6969, Nevo
+                                {{data.UserOd.Street}}
                             </div>
                             <div class="Stat">
-                                Česká republika
+                                {{data.UserOd.Nation}}
+                            </div>
+                            <div class="Psc">
+                                {{data.UserOd.Psc}}
                             </div>
                             <div class="ic">
-                                IČ: 69696969
+                                IČ: {{data.UserOd.Ico}}
                             </div>
                             <div class="dic">
-                                DIČ: 2303923932
+                                DIČ: {{data.UserOd.Dic}}
                             </div>
                         </div>
                     </div>
@@ -40,23 +37,20 @@
                             Odběratel
                         </div>
                         <div class="Grid-Container">
-                            <div class="Spolecnost">
-                                Napicu s.r.o
-                            </div>
                             <div class="Adresa">
-                                Picinská 3
-                            </div>
-                            <div class="Adresa2">
-                                6969, Nevo
+                                {{data.UserDo.Street}}
                             </div>
                             <div class="Stat">
-                                Česká republika
+                                {{data.UserDo.Nation}}
+                            </div>
+                            <div class="Psc">
+                                {{data.UserDo.Psc}}
                             </div>
                             <div class="ic">
-                                IČ: 69696969
+                                IČ: {{data.UserDo.Ico}}
                             </div>
                             <div class="dic">
-                                DIČ: 2303923932
+                                DIČ: {{data.UserDo.Dic}}
                             </div>
                         </div>
                     </div>

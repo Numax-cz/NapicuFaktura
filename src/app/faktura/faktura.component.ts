@@ -11,6 +11,7 @@ export interface FakturaDates {
 
 export interface FakturaUsers {
   Ico: string,
+  Dic: string,
   Name: string,
   Street: string,
   City: string,
@@ -19,6 +20,7 @@ export interface FakturaUsers {
 }
 
 export interface Faktura {
+  Title: string,
   Type: string,
   Payment: string,
   Dates: FakturaDates,
@@ -35,14 +37,7 @@ export interface Faktura {
 })
 export class FakturaComponent implements OnInit {
 
-  // @Input() data: Faktura = {
-  //   Type: "S DPH",
-  //   Payment: "Hotově",
-  //   Dates: {
-
-
-  //   }
-  // }
+  @Input() data: Faktura | undefined;
 
   constructor() {
 

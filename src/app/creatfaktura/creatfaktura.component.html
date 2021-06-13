@@ -21,15 +21,15 @@
                     <div class="UserInputs">
                         <div class="InputItem">
                             <span>Datum vystavení</span>
-                            <input type="date" id="Date1">
+                            <input type="date" id="Date1" [(ngModel)]="Faktura.Dates.Exposure">
                         </div>
                         <div *ngIf="DPH" class="InputItem">
                             <span>Datum zd. plnění</span>
-                            <input type="date" id="Date2">
+                            <input type="date" id="Date2" [(ngModel)]="Faktura.Dates.Zd">
                         </div>
                         <div class="InputItem">
                             <span>Splatnost</span>
-                            <input type="date" id="Date3">
+                            <input type="date" id="Date3" [(ngModel)]="Faktura.Dates.Validity">
                         </div>
                         <div class="InputItem">
                             <span>Forma úhrady</span>
@@ -56,30 +56,28 @@
 
                     <div class="UserInputs">
                         <div class="InputItem">
-
                             <span>IČO</span>
-                            <input type="number">
-
+                            <input type="number" [(ngModel)]="Faktura.UserOd.Ico">
                         </div>
                         <div class="InputItem">
                             <span>Jméno</span>
-                            <input type="text">
+                            <input type="text" [(ngModel)]="Faktura.UserOd.Name">
                         </div>
                         <div class="InputItem">
                             <span>Ulice</span>
-                            <input type="text">
+                            <input type="text" [(ngModel)]="Faktura.UserOd.Street">
                         </div>
                         <div class="InputItem">
                             <span>Město</span>
-                            <input type="text">
+                            <input type="text" [(ngModel)]="Faktura.UserOd.City">
                         </div>
                         <div class="InputItem">
                             <span>PSČ</span>
-                            <input type="text">
+                            <input type="text" [(ngModel)]="Faktura.UserOd.Psc">
                         </div>
                         <div class="InputItem">
                             <span>Země</span>
-                            <input type="text">
+                            <input type="text" [(ngModel)]="Faktura.UserOd.Nation">
                         </div>
                     </div>
                 </div>
@@ -93,27 +91,27 @@
                     <div class="UserInputs">
                         <div class="InputItem">
                             <span>IČO</span>
-                            <input type="number">
+                            <input type="number" [(ngModel)]="Faktura.UserDo.Ico">
                         </div>
                         <div class="InputItem">
                             <span>Jméno</span>
-                            <input type="text">
+                            <input type="text" [(ngModel)]="Faktura.UserDo.Name">
                         </div>
                         <div class="InputItem">
                             <span>Ulice</span>
-                            <input type="text">
+                            <input type="text" [(ngModel)]="Faktura.UserDo.Street">
                         </div>
                         <div class="InputItem">
                             <span>Město</span>
-                            <input type="text">
+                            <input type="text" [(ngModel)]="Faktura.UserDo.City">
                         </div>
                         <div class="InputItem">
                             <span>PSČ</span>
-                            <input type="text">
+                            <input type="text" [(ngModel)]="Faktura.UserDo.Psc">
                         </div>
                         <div class="InputItem">
                             <span>Země</span>
-                            <input type="text">
+                            <input type="text" [(ngModel)]="Faktura.UserDo.Nation">
                         </div>
                     </div>
                 </div>
@@ -129,12 +127,7 @@
             </div>
             <div class="AddItems">
                 <button (click)="AddItem()">Přidat položku +</button>
-
-
             </div>
-
-
-
             <div class="AddItem">
                 <table id="TablesItems">
 
@@ -146,7 +139,6 @@
                         <th *ngIf="DPH">DPH</th>
                         <th>Cena</th>
                         <th>Celkem</th>
-
                     </tr>
 
 
@@ -213,10 +205,13 @@
         </div>
     </div>
 
+    <div class="ButtonCreat">
+        <button (click)="LoadFaktura()">Vytvořit fakturu</button>
+    </div>
     <div class="Other">
         <section class="Paper">
 
-            <app-faktura></app-faktura>
+            <app-faktura [data]="Faktura"></app-faktura>
         </section>
 
     </div>
