@@ -37,95 +37,6 @@ export class CreatfakturaComponent implements OnInit {
       priceall: 0,
     }
   ]
-
-
-  public DPH: boolean = true;
-  public Price: number = 0;
-  public PriceDPH: number = 0;
-
-
-
-
-  public Faktura: Faktura = {
-    Title: "NapicuFaktura",
-    Type: "1",
-    Payment: "1",
-    Dates: {
-      Exposure: "0000-00-00",
-      Zd: "0000-00-00",
-      Validity: "0000-00-00"
-    },
-    UserOd: {
-      Ico: "",
-      Dic: "",
-      Name: "",
-      Street: "",
-      City: "",
-      Psc: "",
-      Nation: ""
-    },
-    UserDo: {
-      Ico: "",
-      Dic: "",
-      Name: "",
-      Street: "",
-      City: "",
-      Psc: "",
-      Nation: ""
-    },
-    Items: this.Items
-  }
-
-
-
-
-
-  constructor() { }
-
-  ngOnInit(): void {
-
-
-  }
-
-
-
-  public AddItem(): void {
-    this.Items.push({
-      count: 0,
-      unit: 1,
-      name: "",
-      dph: 0,
-      price: 0,
-      priceall: 0,
-    });
-  }
-
-
-  public DeleteItems(e: Items): void {
-
-    this.Items = this.Items.filter(
-      item => item !== e
-    );
-  }
-
-  public MathDPH(price: number, dph: number): number {
-    var num1: number = price / 100;
-    if (this.DPH) {
-      var num2: number = Math.round(num1 * dph + +price);
-      return num2;
-    } else {
-      return price;
-    }
-  }
-
-
-
-
-
-
-
-
-
   public OptionDPH: Options[] = [
     {
       value: 0,
@@ -203,6 +114,113 @@ export class CreatfakturaComponent implements OnInit {
   ]
 
 
+  public DPH: boolean = true;
+  public Price: number = 0;
+  public PriceDPH: number = 0;
+
+
+  public Type: string = "1";
+  public Payment: string = "1";
+
+
+  public GetType(): string {
+    return this.GetOptionTitle(this.Type, this.OptionDPHA);
+  }
+
+  public GetPayment(): string {
+    return this.GetOptionTitle(this.Payment, this.OptionPay);
+  }
+
+
+
+  public Faktura: Faktura = {
+    Title: "NapicuFaktura",
+    Type: this.GetType(),
+    Payment: this.GetPayment(),
+    Dates: {
+      Exposure: "0000-00-00",
+      Zd: "0000-00-00",
+      Validity: "0000-00-00"
+    },
+    UserOd: {
+      Ico: "",
+      Dic: "",
+      Name: "",
+      Street: "",
+      City: "",
+      Psc: "",
+      Nation: ""
+    },
+    UserDo: {
+      Ico: "",
+      Dic: "",
+      Name: "",
+      Street: "",
+      City: "",
+      Psc: "",
+      Nation: ""
+    },
+    Items: this.Items
+  }
+
+
+
+
+
+  constructor() { }
+
+  ngOnInit(): void { }
+
+
+
+  public AddItem(): void {
+    this.Items.push({
+      count: 0,
+      unit: 1,
+      name: "",
+      dph: 0,
+      price: 0,
+      priceall: 0,
+    });
+  }
+
+  public GetOptionTitle(Name: string, Option: Options[]): string {
+    var value = "";
+    Option.forEach((e: Options) => {
+      if (Number(Name) === e.value) {
+        value = e.title;
+      }
+    });
+    return value;
+  }
+
+
+  public DeleteItems(e: Items): void {
+
+    this.Items = this.Items.filter(
+      item => item !== e
+    );
+  }
+
+  public MathDPH(price: number, dph: number): number {
+    var num1: number = price / 100;
+    if (this.DPH) {
+      var num2: number = Math.round(num1 * dph + +price);
+      return num2;
+    } else {
+      return price;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -229,10 +247,6 @@ export class CreatfakturaComponent implements OnInit {
     };
   }
 
-  public LoadFaktura(): void {
-    console.log(this.Faktura);
-
-  }
 
 
 

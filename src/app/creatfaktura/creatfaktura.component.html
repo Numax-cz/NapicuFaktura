@@ -9,7 +9,7 @@
                     <div class="UserInputs">
                         <div class="InputItem">
                             <span>Druh</span>
-                            <select class="OptionInput" [(ngModel)]="Faktura.Type">
+                            <select class="OptionInput" [(ngModel)]="Type">
                                 <option *ngFor="let option of OptionDPHA" [value]="option.value">
                                     {{option.title}}
                                 </option>
@@ -33,7 +33,7 @@
                         </div>
                         <div class="InputItem">
                             <span>Forma úhrady</span>
-                            <select class="OptionInput" [(ngModel)]="Faktura.Payment">
+                            <select class="OptionInput" [(ngModel)]="Payment">
                                 <option *ngFor="let option of OptionPay" [value]="option.value">
                                     {{option.title}}
                                 </option>
@@ -205,9 +205,6 @@
         </div>
     </div>
 
-    <div class="ButtonCreat">
-        <button (click)="LoadFaktura()">Vytvořit fakturu</button>
-    </div>
     <div class="Other">
         <section class="Paper">
 

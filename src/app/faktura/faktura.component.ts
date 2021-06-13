@@ -43,9 +43,13 @@ export class FakturaComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-    // console.log(this.data);
+  ngOnInit(): void { }
 
+
+  get Type(): string{
+    
+    
+    return "xd";
   }
 
 }
