@@ -212,20 +212,6 @@ export class CreatfakturaComponent implements OnInit {
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   public ItemsSetValues(e: Items): void {
     let value = this.MathDPH(e.price, e.dph);
     e.priceall = e.count * value;
@@ -246,8 +232,5 @@ export class CreatfakturaComponent implements OnInit {
       WithDPH: WithDPH
     };
   }
-
-
-
 
 }
