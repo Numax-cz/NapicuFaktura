@@ -1,11 +1,5 @@
 # NapicuFaktura
-
-
-
 ### Instalace
-
-
-
 1. Naklonování repozitáře
    ```sh
    git clone https://github.com/Numax-cz/NapicuFaktura.git

@@ -43,17 +43,12 @@
                 </div>
             </div>
         </div>
-
-
         <div class="PoleCt">
             <div class="grid">
-
                 <div class="GridItem">
-
                     <div class="TitlePole">
                         Odběratel
                     </div>
-
                     <div class="UserInputs">
                         <div class="InputItem">
                             <span>IČO</span>
@@ -81,13 +76,10 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="GridItem">
-
                     <div class="TitlePole">
                         Dodavatel
                     </div>
-
                     <div class="UserInputs">
                         <div class="InputItem">
                             <span>IČO</span>
@@ -117,10 +109,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
         <div class="PoleCt BottomItemsAd">
             <div class="TitlePole">
                 Položky
@@ -130,8 +118,6 @@
             </div>
             <div class="AddItem">
                 <table id="TablesItems">
-
-
                     <tr>
                         <th id="xd">Počet</th>
                         <th>M.J.</th>
@@ -140,11 +126,7 @@
                         <th>Cena</th>
                         <th>Celkem</th>
                     </tr>
-
-
                     <tr *ngFor="let i of Items" id="MainItemsTable">
-
-
                         <td class="InputItems-1 Input-Items">
                             <input type="number" [(ngModel)]="i.count" (ngModelChange)="ItemsSetValues(i)">
                         </td>
@@ -164,9 +146,6 @@
                                 </option>
                             </select>
                         </td>
-
-
-
                         <td class="InputItems-5 Input-Items">
                             <input type="number" [(ngModel)]="i.price" (ngModelChange)="ItemsSetValues(i)">
                         </td>
@@ -180,13 +159,10 @@
                                 </i>
                             </span>
                         </td>
-
                     </tr>
-
                 </table>
             </div>
         </div>
-
         <div class="PoleCt">
             <div class="FinalList">
                 <table>
@@ -197,22 +173,15 @@
                     <tr class="SDPH">
                         <td class="FinalListText">Celkem s DPH</td>
                         <td class="CenaA">{{PriceDPH}} Kč</td>
-
                     </tr>
                 </table>
 
             </div>
         </div>
     </div>
-
     <div class="Other">
         <section class="Paper">
-
             <app-faktura [data]="Faktura"></app-faktura>
         </section>
-
     </div>
-
-
-
 </section>
