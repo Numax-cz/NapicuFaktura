@@ -131,7 +131,10 @@ export class CreatfakturaComponent implements OnInit {
     return this.GetOptionTitle(this.Payment, this.OptionPay);
   }
 
-
+  public GetUnit(): string {
+    
+    return " ";
+  }
 
   public Faktura: Faktura = {
     Title: "NapicuFaktura",

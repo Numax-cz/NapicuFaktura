@@ -87,27 +87,19 @@
                 <table id="TablesItems">
                     <tr class="TablesMain Border">
                         <th>Počet</th>
+                        <th>M.J.</th>
                         <th>Popis</th>
                         <th>Cena</th>
                         <th>%DPH</th>
-                        <th>DPH</th>
                         <th>Celkem</th>
                     </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>VPS</td>
-                        <td>150 Kč</td>
-                        <td>0 %</td>
-                        <td>0 Kč</td>
-                        <td>150 Kč</td>
-                    </tr>
-                    <tr>
-                        <td>69</td>
-                        <td>VPS</td>
-                        <td>1050 Kč</td>
-                        <td>0 %</td>
-                        <td>0 Kč</td>
-                        <td>1050 Kč</td>
+                    <tr *ngFor="let items of data.Items">
+                        <td>{{items.count}}</td>
+                        <td>{{items.unit}}</td>
+                        <td>{{items.name}}</td>
+                        <td>{{items.price}}Kč</td>
+                        <td>{{items.dph}}%</td>
+                        <td>{{items.priceall}}Kč</td>
                     </tr>
                 </table>
             </div>

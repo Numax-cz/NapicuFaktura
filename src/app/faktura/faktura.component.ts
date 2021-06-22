@@ -49,7 +49,8 @@ export class FakturaComponent implements OnInit {
   get Type(): string{
     
     
-    return "xd";
+
+    return "";
   }
 
 }
