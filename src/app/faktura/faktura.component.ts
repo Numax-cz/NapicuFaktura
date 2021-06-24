@@ -26,7 +26,9 @@ export interface Faktura {
   Dates: FakturaDates,
   UserOd: FakturaUsers,
   UserDo: FakturaUsers,
-  Items: Items[]
+  Items: Items[],
+  Price: number,
+  PriceDPH: number
 }
 
 
@@ -44,13 +46,5 @@ export class FakturaComponent implements OnInit {
   }
 
   ngOnInit(): void { }
-
-
-  get Type(): string{
-    
-    
-
-    return "";
-  }
 
 }

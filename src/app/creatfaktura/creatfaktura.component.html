@@ -1,5 +1,6 @@
 <section id="CreatPole">
     <div class="Main">
+
         <div class="Title">
             Vytvoření nové faktury
         </div>
@@ -132,7 +133,7 @@
                         </td>
                         <td class="InputItems-2 Input-Items">
                             <select class="OptionInput" [(ngModel)]="i.unit" (ngModelChange)="ItemsSetValues(i)">
-                                <option *ngFor="let option of OptionItems" [value]="option.value"> {{option.title}}
+                                <option *ngFor="let option of OptionItems" [value]="option.title"> {{option.title}}
                                 </option>
                             </select>
                         </td>
@@ -155,15 +156,15 @@
                         <td>
                             <span>
                                 <i>
-                                    <img src="/assets/close.png" id="ButtonClose" (click)="DeleteItems(i)">
+                                    <img src="/assets/close.webp" id="ButtonClose" (click)="DeleteItems(i)">
                                 </i>
                             </span>
                         </td>
                     </tr>
                 </table>
             </div>
-        </div>
-        <div class="PoleCt">
+            <div class="PoleCt">
+            </div>
             <div class="FinalList">
                 <table>
                     <tr class="BezDPH">

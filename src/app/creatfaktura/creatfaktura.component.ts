@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Faktura, FakturaDates, FakturaUsers } from '../faktura/faktura.component';
-
-
-interface Options {
-  value: number,
-  title: string
-}
+import { Faktura } from '../faktura/faktura.component';
 
 export interface Items {
   count: number,
-  unit: number,
+  unit: string,
   name: string,
   dph: number,
   price: number,
   priceall: number,
+}
+interface Options {
+  value: number,
+  title: string
 }
 interface Price {
   WithoutDPH: number,
@@ -26,11 +24,10 @@ interface Price {
   styleUrls: ['./creatfaktura.component.scss']
 })
 export class CreatfakturaComponent implements OnInit {
-
   public Items: Items[] = [
     {
       count: 0,
-      unit: 1, //idk
+      unit: "Ks",
       name: "",
       dph: 0,
       price: 0,
@@ -118,7 +115,6 @@ export class CreatfakturaComponent implements OnInit {
   public Price: number = 0;
   public PriceDPH: number = 0;
 
-
   public Type: string = "1";
   public Payment: string = "1";
 
@@ -129,11 +125,6 @@ export class CreatfakturaComponent implements OnInit {
 
   public GetPayment(): string {
     return this.GetOptionTitle(this.Payment, this.OptionPay);
-  }
-
-  public GetUnit(): string {
-    
-    return " ";
   }
 
   public Faktura: Faktura = {
@@ -163,11 +154,10 @@ export class CreatfakturaComponent implements OnInit {
       Psc: "",
       Nation: ""
     },
-    Items: this.Items
+    Items: this.Items,
+    Price: this.Price,
+    PriceDPH: this.PriceDPH
   }
-
-
-
 
 
   constructor() { }
@@ -179,12 +169,18 @@ export class CreatfakturaComponent implements OnInit {
   public AddItem(): void {
     this.Items.push({
       count: 0,
-      unit: 1,
+      unit: "Ks",
       name: "",
       dph: 0,
       price: 0,
       priceall: 0,
     });
+  }
+
+  public UpdateGlobalData(): void {
+    this.Faktura.Items = this.Items;
+    this.Faktura.Price = this.Price;
+    this.Faktura.PriceDPH = this.PriceDPH;
   }
 
   public GetOptionTitle(Name: string, Option: Options[]): string {
@@ -197,12 +193,11 @@ export class CreatfakturaComponent implements OnInit {
     return value;
   }
 
-
   public DeleteItems(e: Items): void {
-
     this.Items = this.Items.filter(
       item => item !== e
     );
+    this.UpdateGlobalData();
   }
 
   public MathDPH(price: number, dph: number): number {
@@ -218,9 +213,9 @@ export class CreatfakturaComponent implements OnInit {
   public ItemsSetValues(e: Items): void {
     let value = this.MathDPH(e.price, e.dph);
     e.priceall = e.count * value;
-
     this.Price = this.ItemsGetAllPrice().WithoutDPH;
     this.PriceDPH = this.ItemsGetAllPrice().WithDPH;
+    this.UpdateGlobalData();
   }
 
   public ItemsGetAllPrice(): Price {
@@ -235,5 +230,4 @@ export class CreatfakturaComponent implements OnInit {
       WithDPH: WithDPH
     };
   }
-
 }
