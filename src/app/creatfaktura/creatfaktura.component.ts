@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Faktura } from '../faktura/faktura.component';
 
+
+
 export interface Items {
   count: number,
   unit: string,
@@ -115,22 +117,16 @@ export class CreatfakturaComponent implements OnInit {
   public Price: number = 0;
   public PriceDPH: number = 0;
 
-  public Type: string = "1";
+  public Type: string = "S DPH";
   public Payment: string = "1";
 
 
-  public GetType(): string {
-    return this.GetOptionTitle(this.Type, this.OptionDPHA);
-  }
 
-  public GetPayment(): string {
-    return this.GetOptionTitle(this.Payment, this.OptionPay);
-  }
 
   public Faktura: Faktura = {
     Title: "NapicuFaktura",
-    Type: this.GetType(),
-    Payment: this.GetPayment(),
+    Type: "S DPH",
+    Payment: "Hotově",
     Dates: {
       Exposure: "0000-00-00",
       Zd: "0000-00-00",

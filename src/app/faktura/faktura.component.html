@@ -1,124 +1,129 @@
-<section id="Faktura" *ngIf="data">
-    <div class="Faktura-table">
-        <div class="BorderRam">
-            <div class="Top">
-                <div class="Title Border Right">
-                    <div class="TitleID">
-                        {{data.Title}}
-                    </div>
-                </div>
-            </div>
-            <div class="Mid1 Border">
-                <div class="grid">
-                    <div class="GridItem">
-                        <div class="Grid-Title">
-                            Dodavatel
-                        </div>
-                        <div class="Grid-Container">
-                            <div class="Adresa">
-                                {{data.UserOd.Street}}
-                            </div>
-                            <div class="Stat">
-                                {{data.UserOd.Nation}}
-                            </div>
-                            <div class="Psc">
-                                {{data.UserOd.Psc}}
-                            </div>
-                            <div class="ic">
-                                IČ: {{data.UserOd.Ico}}
-                            </div>
-                            <div class="dic">
-                                DIČ: {{data.UserOd.Dic}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="GridItem">
-                        <div class="Grid-Title">
-                            Odběratel
-                        </div>
-                        <div class="Grid-Container">
-                            <div class="Adresa">
-                                {{data.UserDo.Street}}
-                            </div>
-                            <div class="Stat">
-                                {{data.UserDo.Nation}}
-                            </div>
-                            <div class="Psc">
-                                {{data.UserDo.Psc}}
-                            </div>
-                            <div class="ic">
-                                IČ: {{data.UserDo.Ico}}
-                            </div>
-                            <div class="dic">
-                                DIČ: {{data.UserDo.Dic}}
-                            </div>
+<table id="FakturaData" style='width:80px;'>
+
+
+    <section *ngIf="data" #Faktura>
+        <div class="Faktura-table" id="Faktura">
+            <div class="BorderRam">
+                <div class="Top">
+                    <div class="Title Border Right">
+                        <div class="TitleID">
+                            {{data.Title}}
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="Mid2 Border">
-                <div class="grid">
-                    <div class="GridItem">
-                        <div class="Grid-Container">
-                            Druh: {{data.Type}}
-                        </div>
-                    </div>
-                    <div class="GridItem">
-                        <div class="Grid-Container">
-                            Forma úhrady: {{data.Payment}}
-                        </div>
-                    </div>
-                    <div class="GridItem">
-                        <div class="Grid-Container">
-                            <div class="Vystaveno">
-                                Datum vystavení: {{data.Dates.Exposure}}
+                <div class="Mid1 Border">
+                    <div class="grid">
+                        <div class="GridItem">
+                            <div class="Grid-Title">
+                                Dodavatel
                             </div>
-                            <div class="Splatnost">
-                                Datum zdaneni plnění: {{data.Dates.Zd}}
+                            <div class="Grid-Container">
+                                <div class="Adresa">
+                                    {{data.UserOd.Street}}
+                                </div>
+                                <div class="Stat">
+                                    {{data.UserOd.Nation}}
+                                </div>
+                                <div class="Psc">
+                                    {{data.UserOd.Psc}}
+                                </div>
+                                <div class="ic">
+                                    IČ: {{data.UserOd.Ico}}
+                                </div>
+                                <div class="dic">
+                                    DIČ: {{data.UserOd.Dic}}
+                                </div>
                             </div>
-                            <div class="Zdaneni">
-                                Datum splatnosti: {{data.Dates.Validity}}
+                        </div>
+                        <div class="GridItem">
+                            <div class="Grid-Title">
+                                Odběratel
+                            </div>
+                            <div class="Grid-Container">
+                                <div class="Adresa">
+                                    {{data.UserDo.Street}}
+                                </div>
+                                <div class="Stat">
+                                    {{data.UserDo.Nation}}
+                                </div>
+                                <div class="Psc">
+                                    {{data.UserDo.Psc}}
+                                </div>
+                                <div class="ic">
+                                    IČ: {{data.UserDo.Ico}}
+                                </div>
+                                <div class="dic">
+                                    DIČ: {{data.UserDo.Dic}}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="Mid3 Border">
-                <table id="TablesItems">
-                    <tr class="TablesMain Border">
-                        <th>Počet</th>
-                        <th>M.J.</th>
-                        <th>Popis</th>
-                        <th>Cena</th>
-                        <th>%DPH</th>
-                        <th>Celkem</th>
-                    </tr>
-                    <tr *ngFor="let items of data.Items">
-                        <td>{{items.count}}</td>
-                        <td>{{items.unit}}</td>
-                        <td>{{items.name}}</td>
-                        <td>{{items.price}}Kč</td>
-                        <td>{{items.dph}}%</td>
-                        <td>{{items.priceall}}Kč</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="Bottom">
-
-                <div class="Celkem">
-
-                    <div>
-
-                        Celkem bez DPH {{data.Price}} Kč
+                <div class="Mid2 Border">
+                    <div class="grid">
+                        <div class="GridItem">
+                            <div class="Grid-Container">
+                                Druh: {{data.Type}}
+                            </div>
+                        </div>
+                        <div class="GridItem">
+                            <div class="Grid-Container">
+                                Forma úhrady: {{data.Payment}}
+                            </div>
+                        </div>
+                        <div class="GridItem">
+                            <div class="Grid-Container">
+                                <div class="Vystaveno">
+                                    Datum vystavení: {{data.Dates.Exposure}}
+                                </div>
+                                <div class="Splatnost">
+                                    Datum zdaneni plnění: {{data.Dates.Zd}}
+                                </div>
+                                <div class="Zdaneni">
+                                    Datum splatnosti: {{data.Dates.Validity}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
+                </div>
+                <div class="Mid3 Border">
+                    <table id="TablesItems">
+                        <tr class="TablesMain Border">
+                            <th>Počet</th>
+                            <th>M.J.</th>
+                            <th>Popis</th>
+                            <th>Cena</th>
+                            <th>%DPH</th>
+                            <th>Celkem</th>
+                        </tr>
+                        <tr *ngFor="let items of data.Items">
+                            <td>{{items.count}}</td>
+                            <td>{{items.unit}}</td>
+                            <td>{{items.name}}</td>
+                            <td>{{items.price}}Kč</td>
+                            <td>{{items.dph}}%</td>
+                            <td>{{items.priceall}}Kč</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="Bottom">
 
-                        Celkem s DPH 0 Kč
+                    <div class="Celkem">
+                        <table>
+                            <tr class="BezDPH">
+                                <td class="FinalListText">Celkem bez DPH</td>
+                                <td class="CenaA">{{data.Price}} Kč</td>
+                            </tr>
+                            <tr class="SDPH">
+                                <td class="FinalListText">Celkem s DPH</td>
+                                <td class="CenaA">{{data.PriceDPH}} Kč</td>
+                            </tr>
+                        </table>
+
                     </div>
-
-
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+</table>

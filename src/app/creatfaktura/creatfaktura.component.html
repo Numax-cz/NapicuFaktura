@@ -1,3 +1,4 @@
+
 <section id="CreatPole">
     <div class="Main">
 
@@ -9,9 +10,13 @@
                 <div class="GridItem">
                     <div class="UserInputs">
                         <div class="InputItem">
+                            <span>Název</span>
+                            <input type="text" [(ngModel)]="Faktura.Title">
+                        </div>
+                        <div class="InputItem">
                             <span>Druh</span>
-                            <select class="OptionInput" [(ngModel)]="Type">
-                                <option *ngFor="let option of OptionDPHA" [value]="option.value">
+                            <select class="OptionInput" [(ngModel)]="Faktura.Type">
+                                <option *ngFor="let option of OptionDPHA" [value]="option.title">
                                     {{option.title}}
                                 </option>
                             </select>
@@ -34,8 +39,8 @@
                         </div>
                         <div class="InputItem">
                             <span>Forma úhrady</span>
-                            <select class="OptionInput" [(ngModel)]="Payment">
-                                <option *ngFor="let option of OptionPay" [value]="option.value">
+                            <select class="OptionInput" [(ngModel)]="Faktura.Payment">
+                                <option *ngFor="let option of OptionPay" [value]="option.title">
                                     {{option.title}}
                                 </option>
                             </select>
@@ -51,6 +56,10 @@
                         Odběratel
                     </div>
                     <div class="UserInputs">
+                        <div class="InputItem">
+                            <span>DIČ</span>
+                            <input type="number" [(ngModel)]="Faktura.UserOd.Dic">
+                        </div>
                         <div class="InputItem">
                             <span>IČO</span>
                             <input type="number" [(ngModel)]="Faktura.UserOd.Ico">
@@ -82,6 +91,10 @@
                         Dodavatel
                     </div>
                     <div class="UserInputs">
+                        <div class="InputItem">
+                            <span>DIČ</span>
+                            <input type="number" [(ngModel)]="Faktura.UserDo.Dic">
+                        </div>
                         <div class="InputItem">
                             <span>IČO</span>
                             <input type="number" [(ngModel)]="Faktura.UserDo.Ico">
@@ -180,9 +193,6 @@
             </div>
         </div>
     </div>
-    <div class="Other">
-        <section class="Paper">
-            <app-faktura [data]="Faktura"></app-faktura>
-        </section>
-    </div>
 </section>
+<app-faktura id="kokot" [data]="Faktura"></app-faktura>
+<app-htmltopdf></app-htmltopdf>
