@@ -27,7 +27,7 @@ interface Price {
 })
 export class CreatfakturaComponent {
   constructor() { }
-  
+
   public Items: Items[] = [
     {
       count: 0,
@@ -151,11 +151,6 @@ export class CreatfakturaComponent {
     Price: this.Price,
     PriceDPH: this.PriceDPH
   }
-
-
-
-
-
 
   public AddItem(): void {
     this.Items.push({

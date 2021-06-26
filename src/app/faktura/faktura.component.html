@@ -4,7 +4,7 @@
             <div class="Top">
                 <div class="Title Border Right">
                     <div class="TitleID">
-                        {{data.Title}}
+                        <strong> {{data.Title}}</strong>
                     </div>
                 </div>
             </div>
@@ -12,7 +12,7 @@
                 <div class="grid">
                     <div class="GridItem">
                         <div class="Grid-Title">
-                            Dodavatel
+                            <strong>Dodavatel</strong>
                         </div>
                         <div class="Grid-Container">
                             <div class="Adresa">
@@ -25,16 +25,16 @@
                                 {{data.UserOd.Psc}}
                             </div>
                             <div class="ic">
-                                IČ: {{data.UserOd.Ico}}
+                                <strong>IČ:</strong> {{data.UserOd.Ico}}
                             </div>
                             <div class="dic">
-                                DIČ: {{data.UserOd.Dic}}
+                                <strong>DIČ:</strong> {{data.UserOd.Dic}}
                             </div>
                         </div>
                     </div>
                     <div class="GridItem">
                         <div class="Grid-Title">
-                            Odběratel
+                            <strong>Odběratel</strong>
                         </div>
                         <div class="Grid-Container">
                             <div class="Adresa">
@@ -47,10 +47,10 @@
                                 {{data.UserDo.Psc}}
                             </div>
                             <div class="ic">
-                                IČ: {{data.UserDo.Ico}}
+                                <strong>IČ:</strong> {{data.UserDo.Ico}}
                             </div>
                             <div class="dic">
-                                DIČ: {{data.UserDo.Dic}}
+                                <strong>DIČ:</strong> {{data.UserDo.Dic}}
                             </div>
                         </div>
                     </div>
@@ -60,24 +60,25 @@
                 <div class="grid">
                     <div class="GridItem">
                         <div class="Grid-Container">
-                            Druh: {{data.Type}}
+                            <strong>Druh:</strong> {{data.Type}}
                         </div>
                     </div>
                     <div class="GridItem">
                         <div class="Grid-Container">
-                            Forma úhrady: {{data.Payment}}
+                            <strong>Forma úhrady:</strong> {{data.Payment}}
                         </div>
                     </div>
+
                     <div class="GridItem">
                         <div class="Grid-Container">
                             <div class="Vystaveno">
-                                Datum vystavení: {{data.Dates.Exposure}}
+                                <strong>Datum vystavení:</strong> {{data.Dates.Exposure}}
                             </div>
                             <div class="Splatnost">
-                                Datum zdaneni plnění: {{data.Dates.Zd}}
+                                <strong>Datum zdaneni plnění:</strong> {{data.Dates.Zd}}
                             </div>
                             <div class="Zdaneni">
-                                Datum splatnosti: {{data.Dates.Validity}}
+                                <strong>Datum splatnosti:</strong> {{data.Dates.Validity}}
                             </div>
                         </div>
                     </div>
@@ -86,12 +87,12 @@
             <div class="Mid3 Border">
                 <table id="TablesItems">
                     <tr class="TablesMain Border">
-                        <th>Počet</th>
-                        <th>M.J.</th>
-                        <th>Popis</th>
-                        <th>Cena</th>
-                        <th>%DPH</th>
-                        <th>Celkem</th>
+                        <th><strong>Počet</strong></th>
+                        <th><strong>M.J.</strong></th>
+                        <th><strong>Popis</strong></th>
+                        <th><strong>Cena</strong></th>
+                        <th><strong>%DPH</strong></th>
+                        <th><strong>Celkem</strong></th>
                     </tr>
                     <tr *ngFor="let items of data.Items">
                         <td>{{items.count}}</td>

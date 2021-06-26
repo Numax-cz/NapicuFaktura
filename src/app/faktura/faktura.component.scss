@@ -11,26 +11,23 @@
 }
 
 .Grid-Container {
-    font-size: 1rem;
+    font-size: 2rem;
 }
 
 .grid {
     display: grid;
     grid-template-columns: auto auto;
-
 }
 
 .GridItem {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
-
-    font-size: 30px;
-
+    font-size: 2.5rem;
 }
 
 .Title {
-    padding: 10px;
-    font-size: 2rem;
+    padding: 23px;
+    font-size: 4rem;
 }
 
 #TablesItems {
@@ -64,13 +61,8 @@ th {
 }
 
 #TablesItems td {
-    font-size: .8rem;
+    font-size: 1.5rem;
     padding: 10px 20px;
-}
-
-#TablesItems2 td {
-    font-size: .8rem;
-    padding: 10px 60px;
 }
 
 .Border {
@@ -95,11 +87,9 @@ th {
 
 .TablesMain th {
     padding: 20px;
+    font-size: 1.8rem;
 }
 
-.TablesMain2 th {
-    padding: 20px 60px;
-}
 
 .FinalListText{
     padding-right: 7rem;
@@ -110,10 +100,10 @@ th {
     text-align: right;
 }
 .BezDPH{
-    font-size: 1rem;
+    font-size: 1.67rem;
     font-weight: 300;
 }
 .SDPH{
-    font-size: 1.25rem;
+    font-size: 2.25rem;
     font-weight: bold;
 }
