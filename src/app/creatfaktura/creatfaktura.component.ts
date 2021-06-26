@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Faktura } from '../faktura/faktura.component';
 
 
@@ -25,7 +25,9 @@ interface Price {
   templateUrl: './creatfaktura.component.html',
   styleUrls: ['./creatfaktura.component.scss']
 })
-export class CreatfakturaComponent implements OnInit {
+export class CreatfakturaComponent {
+  constructor() { }
+  
   public Items: Items[] = [
     {
       count: 0,
@@ -117,11 +119,6 @@ export class CreatfakturaComponent implements OnInit {
   public Price: number = 0;
   public PriceDPH: number = 0;
 
-  public Type: string = "S DPH";
-  public Payment: string = "1";
-
-
-
 
   public Faktura: Faktura = {
     Title: "NapicuFaktura",
@@ -156,9 +153,7 @@ export class CreatfakturaComponent implements OnInit {
   }
 
 
-  constructor() { }
 
-  ngOnInit(): void { }
 
 
 
@@ -177,16 +172,6 @@ export class CreatfakturaComponent implements OnInit {
     this.Faktura.Items = this.Items;
     this.Faktura.Price = this.Price;
     this.Faktura.PriceDPH = this.PriceDPH;
-  }
-
-  public GetOptionTitle(Name: string, Option: Options[]): string {
-    var value = "";
-    Option.forEach((e: Options) => {
-      if (Number(Name) === e.value) {
-        value = e.title;
-      }
-    });
-    return value;
   }
 
   public DeleteItems(e: Items): void {
