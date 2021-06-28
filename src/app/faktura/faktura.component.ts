@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Items } from '../creatfaktura/creatfaktura.component';
 
 export interface FakturaDates {
@@ -34,7 +34,8 @@ export interface Faktura {
   templateUrl: './faktura.component.html',
   styleUrls: ['./faktura.component.scss']
 })
-export class FakturaComponent {
+export class FakturaComponent implements OnInit {
   @Input() data: Faktura | undefined;
   constructor() { }
+  ngOnInit() { }
 }

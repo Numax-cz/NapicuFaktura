@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Faktura } from '../faktura/faktura.component';
 
 
@@ -25,8 +25,9 @@ interface Price {
   templateUrl: './creatfaktura.component.html',
   styleUrls: ['./creatfaktura.component.scss']
 })
-export class CreatfakturaComponent {
+export class CreatfakturaComponent implements OnInit {
   constructor() { }
+  ngOnInit() { }
 
   public Items: Items[] = [
     {

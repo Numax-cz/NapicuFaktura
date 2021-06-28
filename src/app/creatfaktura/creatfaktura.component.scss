@@ -141,7 +141,7 @@
     border-radius: 8px;
     display: flex;
     margin-top: 10%;
-    margin-bottom: 20%;
+    margin-bottom: 5%;
     padding: 3.2rem;
     flex-direction: column;
     flex-wrap: wrap;
@@ -150,7 +150,9 @@
 .FinalList table{
     border-collapse: collapse;
 }
-
+.ButtonDownload{
+    margin-bottom: 10%;
+}
 .FinalListText{
     padding-right: 7rem;
   }

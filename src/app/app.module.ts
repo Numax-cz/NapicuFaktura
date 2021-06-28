@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
+import { RouterModule, Routes } from "@angular/router";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +10,12 @@ import { CreatfakturaComponent } from './creatfaktura/creatfaktura.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
 
+const routes: Routes = [
+  { path: '', component: MainpageComponent },
+  { path: 'creat', component: CreatfakturaComponent },
+  { path: '**', component: MainpageComponent }
 
+];
 
 @NgModule({
   declarations: [
@@ -23,7 +28,9 @@ import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

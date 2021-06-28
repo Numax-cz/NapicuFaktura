@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
 @Component({
@@ -6,8 +6,9 @@ import html2canvas from 'html2canvas';
   templateUrl: './htmltopdf.component.html',
   styleUrls: ['./htmltopdf.component.scss']
 })
-export class HtmltopdfComponent {
+export class HtmltopdfComponent implements OnInit {
   constructor() { }
+  ngOnInit() { }
   public generatePDF(): void {
     window.scrollTo(0, 0);
     const data = document.getElementById('FakturaData');
