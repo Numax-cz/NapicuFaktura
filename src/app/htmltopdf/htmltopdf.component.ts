@@ -13,21 +13,13 @@ export class HtmltopdfComponent {
     const data = document.getElementById('FakturaData');
     if (!data) return;
     html2canvas(data).then(canvas => {
-      // var imgWidth = 208; 
-      // var imgHeight = canvas.height * imgWidth / canvas.width;
-      const contentDataURL = canvas.toDataURL('image/jpeg')
+      const contentDataURL = canvas.toDataURL('image/png')
       let pdf = new jspdf('p', 'mm', 'a4');
-      // var position = 0;
-      // pdf.addImage(contentDataURL, 'JPEG', 0, position, imgWidth, imgHeight)
-
-
-
-      const imgProps= pdf.getImageProperties(contentDataURL);
+      const imgProps = pdf.getImageProperties(contentDataURL);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
       pdf.addImage(contentDataURL, 'PNG', 0, 0, pdfWidth, pdfHeight);
-
-      pdf.save('newPDF.pdf');
+      pdf.save('NapicuFaktura.pdf');
     });
   }
 }
