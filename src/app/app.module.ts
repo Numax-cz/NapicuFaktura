@@ -9,6 +9,8 @@ import { FakturaComponent } from './faktura/faktura.component';
 import { CreatfakturaComponent } from './creatfaktura/creatfaktura.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   { path: '', component: MainpageComponent },
@@ -22,6 +24,7 @@ const routes: Routes = [
     AppComponent,
     FakturaComponent,
     CreatfakturaComponent,
+
     MainpageComponent,
     HtmltopdfComponent
   ],
@@ -30,7 +33,8 @@ const routes: Routes = [
     AppRoutingModule,
     FormsModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
   ],
   providers: [],
   bootstrap: [AppComponent]
