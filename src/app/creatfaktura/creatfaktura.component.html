@@ -132,7 +132,7 @@
             <div class="AddItem">
                 <table id="TablesItems">
                     <tr>
-                        <th id="xd">Počet</th>
+                        <th>Počet</th>
                         <th>M.J.</th>
                         <th>Název</th>
                         <th *ngIf="DPH">DPH</th>
@@ -141,7 +141,8 @@
                     </tr>
                     <tr *ngFor="let i of Items" id="MainItemsTable">
                         <td class="InputItems-1 Input-Items">
-                            <input type="number" [(ngModel)]="i.count" (ngModelChange)="ItemsSetValues(i)">
+                            <input type="number" [(ngModel)]="i.count" (ngModelChange)="ItemsSetValues(i)"
+                                (keydown)="ItemsNumber($event)">
                         </td>
                         <td class="InputItems-2 Input-Items">
                             <select class="OptionInput" [(ngModel)]="i.unit" (ngModelChange)="ItemsSetValues(i)">
@@ -160,9 +161,10 @@
                             </select>
                         </td>
                         <td class="InputItems-5 Input-Items">
-                            <input type="number" [(ngModel)]="i.price" (ngModelChange)="ItemsSetValues(i)">
+                            <input type="number" [(ngModel)]="i.price" (ngModelChange)="ItemsSetValues(i)"
+                                (keydown)="ItemsNumber($event)">
                         </td>
-                        <td class="InputItems-6 Input-Items">
+                        <td class=" InputItems-6 Input-Items">
                             <input type="text" disabled="disabled" [value]="i.priceall">
                         </td>
                         <td>

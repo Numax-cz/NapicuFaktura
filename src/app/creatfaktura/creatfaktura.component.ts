@@ -194,6 +194,14 @@ export class CreatfakturaComponent implements OnInit {
     this.PriceDPH = this.ItemsGetAllPrice().WithDPH;
     this.UpdateGlobalData();
   }
+  public ItemsNumber(e: any): void {
+    if (e.keyCode != 8 && e.keyCode != 0 && e.keyCode < 48 || e.keyCode > 57) {
+      e.preventDefault();
+
+      
+    }
+  }
+
 
   public ItemsGetAllPrice(): Price {
     var WithoutDPH: number = 0;
