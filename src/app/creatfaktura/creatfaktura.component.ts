@@ -1,164 +1,159 @@
 import { Component, OnInit } from '@angular/core';
 import { Faktura } from '../faktura/faktura.component';
 
-
-
 export interface Items {
-  count: number,
-  unit: string,
-  name: string,
-  dph: number,
-  price: number,
-  priceall: number,
+  count: number;
+  unit: string;
+  name: string;
+  dph: number;
+  price: number;
+  priceall: number;
 }
 interface Options {
-  value: number,
-  title: string
+  value: number;
+  title: string;
 }
 interface Price {
-  WithoutDPH: number,
-  WithDPH: number
+  WithoutDPH: number;
+  WithDPH: number;
 }
 
 @Component({
   selector: 'app-creatfaktura',
   templateUrl: './creatfaktura.component.html',
-  styleUrls: ['./creatfaktura.component.scss']
+  styleUrls: ['./creatfaktura.component.scss'],
 })
 export class CreatfakturaComponent implements OnInit {
-  constructor() { }
-  ngOnInit() { }
-
+  constructor() {}
+  ngOnInit() {}
 
   public Items: Items[] = [
     {
       count: 0,
-      unit: "Ks",
-      name: "",
+      unit: 'Ks',
+      name: '',
       dph: 0,
       price: 0,
       priceall: 0,
-    }
-  ]
+    },
+  ];
   public OptionDPH: Options[] = [
     {
       value: 0,
-      title: "0%"
+      title: '0%',
     },
     {
       value: 10,
-      title: "10%"
+      title: '10%',
     },
     {
       value: 15,
-      title: "15%"
+      title: '15%',
     },
     {
       value: 21,
-      title: "21%"
+      title: '21%',
     },
-  ]
+  ];
 
   public OptionItems: Options[] = [
     {
       value: 1,
-      title: "Ks"
+      title: 'Ks',
     },
     {
       value: 2,
-      title: "Litr"
+      title: 'Litr',
     },
     {
       value: 3,
-      title: "Kg"
+      title: 'Kg',
     },
     {
       value: 4,
-      title: "Km"
+      title: 'Km',
     },
     {
       value: 5,
-      title: "Služba"
+      title: 'Služba',
     },
     {
       value: 6,
-      title: "Balení"
-    }
-  ]
+      title: 'Balení',
+    },
+  ];
 
   public OptionPay: Options[] = [
     {
       value: 1,
-      title: "Hotově"
+      title: 'Hotově',
     },
     {
       value: 2,
-      title: "Kartou"
+      title: 'Kartou',
     },
     {
       value: 3,
-      title: "Bankovní převod"
+      title: 'Bankovní převod',
     },
     {
       value: 4,
-      title: "PayPal"
+      title: 'PayPal',
     },
-  ]
+  ];
 
   public OptionDPHA: Options[] = [
     {
       value: 1,
-      title: "S DPH"
+      title: 'S DPH',
     },
     {
       value: 1,
-      title: "Bez DPH"
-    }
-  ]
-
+      title: 'Bez DPH',
+    },
+  ];
 
   public DPH: boolean = true;
   public Price: number = 0;
   public PriceDPH: number = 0;
 
-
   public Faktura: Faktura = {
-    Title: "NapicuFaktura",
-    Type: "S DPH",
-    Payment: "Hotově",
+    Title: 'NapicuFaktura',
+    Type: 'S DPH',
+    Payment: 'Hotově',
     Dates: {
-      Exposure: "0000-00-00",
-      Zd: "0000-00-00",
-      Validity: "0000-00-00"
+      Exposure: '0000-00-00',
+      Zd: '0000-00-00',
+      Validity: '0000-00-00',
     },
     UserOd: {
-      Ico: "",
-      Dic: "",
-      Name: "",
-      Street: "",
-      City: "",
-      Psc: "",
-      Nation: ""
+      Ico: '',
+      Dic: '',
+      Name: '',
+      Street: '',
+      City: '',
+      Psc: '',
+      Nation: '',
     },
     UserDo: {
-      Ico: "",
-      Dic: "",
-      Name: "",
-      Street: "",
-      City: "",
-      Psc: "",
-      Nation: ""
+      Ico: '',
+      Dic: '',
+      Name: '',
+      Street: '',
+      City: '',
+      Psc: '',
+      Nation: '',
     },
     Items: this.Items,
     Price: this.Price,
-    PriceDPH: this.PriceDPH
-  }
+    PriceDPH: this.PriceDPH,
+  };
 
   public AddItem(): void {
     this.Items.push({
       count: 0,
-      unit: "Ks",
-      name: "",
+      unit: 'Ks',
+      name: '',
       dph: 0,
       price: 0,
       priceall: 0,
@@ -172,9 +167,7 @@ export class CreatfakturaComponent implements OnInit {
   }
 
   public DeleteItems(e: Items): void {
-    this.Items = this.Items.filter(
-      item => item !== e
-    );
+    this.Items = this.Items.filter((item) => item !== e);
     this.UpdateGlobalData();
   }
 
@@ -197,7 +190,11 @@ export class CreatfakturaComponent implements OnInit {
   }
 
   public ItemsNumber(e: any): void {
-    if (e.keyCode != 8 && e.keyCode != 0 && e.keyCode < 48 || e.keyCode > 57) {
+    if (
+      (e.keyCode != 8 && e.keyCode != 0 && e.keyCode < 48) ||
+      e.keyCode > 57 ||
+      (e.keyCode > 98 && e.keyCode < 105)
+    ) {
       e.preventDefault();
     }
   }
@@ -211,7 +208,7 @@ export class CreatfakturaComponent implements OnInit {
     });
     return {
       WithoutDPH: WithoutDPH,
-      WithDPH: WithDPH
+      WithDPH: WithDPH,
     };
   }
 }
