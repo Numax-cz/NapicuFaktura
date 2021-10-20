@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: '', component: MainpageComponent, canActivate: [MobileGuard] },
   { path: 'creat', component: CreatfakturaComponent, canActivate: [MobileGuard] },
   { path: '**', component: MainpageComponent, canActivate: [MobileGuard] },
+  { path: 'phone-error', component: MobileComponent},
 ];
 
 @NgModule({

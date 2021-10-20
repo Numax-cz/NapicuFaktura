@@ -13,7 +13,7 @@ export class MobileGuard implements CanActivate {
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (navigator.userAgent.toLowerCase().match(/mobile/i)) {
       
-      this.router.navigate(['blackscreen']);
+      this.router.navigate(['phone-error']);
       return false;
     }
     return true;

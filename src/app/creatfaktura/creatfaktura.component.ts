@@ -193,7 +193,7 @@ export class CreatfakturaComponent implements OnInit {
     if (
       (e.keyCode != 8 && e.keyCode != 0 && e.keyCode < 48) ||
       e.keyCode > 57 ||
-      (e.keyCode > 98 && e.keyCode < 105)
+      (e.keyCode < 98 && e.keyCode > 105)
     ) {
       e.preventDefault();
     }
