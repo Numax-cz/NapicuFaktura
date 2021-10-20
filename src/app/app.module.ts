@@ -11,12 +11,14 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { MobileGuard } from './mobile.guard';
+import { MobileComponent } from './error/mobile/mobile.component';
+
 
 const routes: Routes = [
-  { path: '', component: MainpageComponent },
-  { path: 'creat', component: CreatfakturaComponent },
-  { path: '**', component: MainpageComponent }
-
+  { path: '', component: MainpageComponent, canActivate: [MobileGuard] },
+  { path: 'creat', component: CreatfakturaComponent, canActivate: [MobileGuard] },
+  { path: '**', component: MainpageComponent, canActivate: [MobileGuard] },
 ];
 
 @NgModule({
@@ -26,7 +28,8 @@ const routes: Routes = [
     CreatfakturaComponent,
 
     MainpageComponent,
-    HtmltopdfComponent
+    HtmltopdfComponent,
+    MobileComponent
   ],
   imports: [
     BrowserModule,
