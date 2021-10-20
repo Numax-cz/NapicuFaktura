@@ -191,11 +191,12 @@ export class CreatfakturaComponent implements OnInit {
 
   public ItemsNumber(e: any): void {
     if (
-      (e.keyCode == 0 && e.keyCode == 8) == false ||
-      (57 >= e.keyCode && e.keyCode >= 48) == false ||
-      (105 >= e.keyCode && e.keyCode >= 96) == false
-    )
+      (e.keyCode == 8 ||
+        (e.shiftKey == true && 57 >= e.keyCode && e.keyCode >= 48) ||
+        (105 >= e.keyCode && e.keyCode >= 96)) == false
+    ) {
       e.preventDefault();
+    }
   }
 
   public ItemsGetAllPrice(): Price {
