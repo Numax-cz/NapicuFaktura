@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from "@angular/router";
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,15 +11,11 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { MobileGuard } from './mobile.guard';
-import { MobileComponent } from './error/mobile/mobile.component';
-
 
 const routes: Routes = [
-  { path: '', component: MainpageComponent, canActivate: [MobileGuard] },
-  { path: 'creat', component: CreatfakturaComponent, canActivate: [MobileGuard] },
-  { path: '**', component: MainpageComponent, canActivate: [MobileGuard] },
-  { path: 'phone-error', component: MobileComponent},
+  { path: '', component: MainpageComponent },
+  { path: 'creat', component: CreatfakturaComponent },
+  { path: '**', component: MainpageComponent },
 ];
 
 @NgModule({
@@ -30,7 +26,6 @@ const routes: Routes = [
 
     MainpageComponent,
     HtmltopdfComponent,
-    MobileComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +36,6 @@ const routes: Routes = [
     environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
