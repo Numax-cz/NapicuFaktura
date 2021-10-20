@@ -7,15 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FakturaComponent } from './faktura/faktura.component';
 import { CreatfakturaComponent } from './creatfaktura/creatfaktura.component';
-import { MainpageComponent } from './mainpage/mainpage.component';
 import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 const routes: Routes = [
-  { path: '', component: MainpageComponent },
-  { path: 'creat', component: CreatfakturaComponent },
-  { path: '**', component: MainpageComponent },
+  { path: '', component: CreatfakturaComponent },
+  { path: '**', component: CreatfakturaComponent },
 ];
 
 @NgModule({
@@ -23,8 +21,6 @@ const routes: Routes = [
     AppComponent,
     FakturaComponent,
     CreatfakturaComponent,
-
-    MainpageComponent,
     HtmltopdfComponent,
   ],
   imports: [
