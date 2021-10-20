@@ -190,16 +190,8 @@ export class CreatfakturaComponent implements OnInit {
   }
 
   public ItemsNumber(e: any): void {
-    if (
-      e.keyCode != 8 &&
-      e.keyCode != 0 &&
-      e.keyCode < 48 &&
-      e.keyCode > 57 &&
-      e.keyCode < 98 &&
-      e.keyCode > 105
-    ) {
+    if ((57 >= e.keyCode && e.keyCode >= 48) || (105 >= e.keyCode && e.keyCode >= 96) == false)
       e.preventDefault();
-    }
   }
 
   public ItemsGetAllPrice(): Price {
